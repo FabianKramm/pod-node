@@ -7,7 +7,6 @@ spec:
   containers:
     - name: pod-node
       image: ghcr.io/fabiankramm/pod-node
-      imagePullPolicy: Never
       securityContext:
         privileged: true
       volumeMounts:
