@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-node
+spec:
+  terminationGracePeriodSeconds: 1
+  containers:
+    - name: pod-node
+      image: ghcr.io/fabiankramm/pod-node
+      imagePullPolicy: Never
+      securityContext:
+        privileged: true
+      volumeMounts:
+        - name: run
+          mountPath: /run
+        - name: var-containerd
+          mountPath: /var/lib/containerd
+        - name: var-kubelet
+          mountPath: /var/lib/kubelet
+  volumes:
+    - name: var-kubelet
+      emptyDir: {}
+    - name: var-containerd
+      emptyDir: {}
+    - name: run
+      emptyDir: {}
