@@ -3,10 +3,10 @@
 Easy container to use as a Kubernetes node. Usage:
 ```bash
 # Create pod node
-kubectl apply -n my-namespace -f https://raw.githubusercontent.com/FabianKramm/pod-node/refs/heads/main/deploy/node.yaml
+kubectl apply -f https://raw.githubusercontent.com/FabianKramm/pod-node/refs/heads/main/deploy/node.yaml
 
 # Exec into pod
-kubectl exec -it -n my-namespace pod-node -- bash
+kubectl exec -it pod-node -- bash
 
 # Install required tools (containerd, kubelet etc.) and prepare host
 curl -sfL https://raw.githubusercontent.com/loft-sh/init-node/main/init.sh | sh -s -- --kubernetes-version v1.32.1
