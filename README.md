@@ -3,7 +3,7 @@
 Easy container to use as a Kubernetes node. Usage:
 ```bash
 # Create pod node
-kubectl apply -n my-namespace -f ...
+kubectl apply -n my-namespace -f https://raw.githubusercontent.com/FabianKramm/pod-node/refs/heads/main/deploy/node.yaml
 
 # Exec into pod
 kubectl exec -it -n my-namespace pod-node -- bash
