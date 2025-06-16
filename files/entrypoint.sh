@@ -10,9 +10,5 @@ exec unshare --cgroup -- /bin/bash -lc '
   mount -t cgroup2 none /sys/fs/cgroup
   /escape-cgroup.sh
   /create-kubelet-cgroup.sh
-  cloud-init clean --logs
-  cloud-init init
-  cloud-init modules --mode=config
-  cloud-init modules --mode=final
   exec /lib/systemd/systemd
 '
