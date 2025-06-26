@@ -16,10 +16,14 @@ spec:
           mountPath: /var/lib/containerd
         - name: var-kubelet
           mountPath: /var/lib/kubelet
+        - name: var-vcluster
+          mountPath: /var/lib/vcluster
   volumes:
     - name: var-kubelet
       emptyDir: {}
     - name: var-containerd
+      emptyDir: {}
+    - name: var-vcluster
       emptyDir: {}
     - name: run
       emptyDir: {}
