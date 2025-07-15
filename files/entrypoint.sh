@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # make the root filesystem private
-mount --make-rprivate /
+mount --make-rprivate /sys/fs/cgroup
 
 # execute the unshare command
 exec unshare --cgroup -- /bin/bash -lc '
