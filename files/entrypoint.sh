@@ -12,6 +12,9 @@ ln -sf /dev/null /etc/systemd/system/systemd-resolved.service
 echo 'disable_network_activation: true' > /etc/cloud/cloud.cfg.d/98-disable-network-activation.cfg
 echo 'network: {config: disabled}' > /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
 
+# make sure subtree control is set
+sed -e 's/ / +/g' -e 's/^/+/' <"/sys/fs/cgroup/cgroup.controllers" >"/sys/fs/cgroup/cgroup.subtree_control" || true
+
 # execute the unshare command
 exec unshare --cgroup -- /bin/bash -lc '
   umount /sys/fs/cgroup
